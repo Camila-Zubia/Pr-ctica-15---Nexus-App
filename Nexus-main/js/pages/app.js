@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <input type="text" id="post-title" placeholder="Título de tu post" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="post-content" placeholder==¿Qué estás pensando?" style="width: 100%; min-heigth: 150px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius);">
+                            <textarea id="post-content" placeholder="¿Qué estás pensando?" style="width: 100%; min-heigth: 150px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius);">
                         </div>
                         <button type="submit" class="btn btn-primary">Publicar</button>
                     </form>
