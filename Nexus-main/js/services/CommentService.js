@@ -10,7 +10,7 @@ class CommentService{
     }
 
     static async addComment(postId, content){
-        const res = await fetch(`${BASE_URL}/commeents`,{
+        const res = await fetch(`${BASE_URL}/comments`,{
             method: 'POST',
             headers: this.getHeaders(),
             body: JSON.stringify({postId, content})

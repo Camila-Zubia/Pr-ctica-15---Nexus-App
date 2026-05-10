@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (AuthService.isAuthenticated()) {
     initFeed();
   } else {
-    (window.location, (href = "login.html"));
+    window.location.href = "login.html";
   }
 
   const initFeed = () => {
@@ -57,12 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
                 <div class="post-content">
-                    >div class"post-title">${post.title}</div>
+                    <div class="post-title">${post.title}</div>
                     <p>${post.content}</p>
                 </div>
                 <div class="post-actions">
-                    <button class="action-btn><i class="far fa-thumps-up"></i>Me gusta</button>
-                    <button class="action-btn comment-trigger"><i class="far fa-comment"</i>Comentar</button>
+                    <button class="action-btn"><i class="far fa-thumbs-up"></i>Me gusta</button>
+                    <button class="action-btn comment-trigger"><i class="far fa-comment"></i>Comentar</button>
                 </div>
                 <div class="comments-section" id="comments-${post.id}">
                     ${
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             .map(
                               (c) => `
                         <div class="comment">
-                            <img class="avatar" style="width: 32px; heigth: 32px;" src="https://ui-avatars.com/api/?name=${c.authorName || "U"}&background=random" alt="Avatar">
-                            <div class="comment-buuble">
+                            <img class="avatar" style="width: 32px; height: 32px;" src="https://ui-avatars.com/api/?name=${c.authorName || "U"}&background=random" alt="Avatar">
+                            <div class="comment-bubble">
                                 <div class="comment-user">${c.authorName || "Usuario"}</div>
                                 <div class"comment-text">${c.content}</div>
                             </div>
