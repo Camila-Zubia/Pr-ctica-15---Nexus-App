@@ -11,12 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const composerUserInfo = document.getElementById("composer-user-info");
   const logoutBtn = document.getElementById("logout-btn");
 
-  if (AuthService.isAuthenticated()) {
-    initFeed();
-  } else {
-    window.location.href = "login.html";
-  }
-
   const initFeed = () => {
     const user = AuthService.getUser();
     if (!user) return;
@@ -50,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         postEl.className = "post-card fade-in";
         postEl.innerHTML = `
                 <div class="post-header">
-                    <img class="avatar" src="https://ui-avatars.com/api/?name${post.authorName || "Usuario"}&background-random" alt="Avatar">
+                    <img class="avatar" src="https://ui-avatars.com/api/?name=${post.authorName || "Usuario"}&background=random" alt="Avatar">
                     <div class="post-user-info">
                         <h3>${post.authorName || "Usuario"}</h3>
                         <span>${post.createdAt || "Hace un momento"}</span>
@@ -126,9 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <input type="text" id="post-title" placeholder="Título de tu post" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="post-content" placeholder="¿Qué estás pensando?" style="width: 100%; min-heigth: 150px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius);">
+                            <textarea id="post-content" placeholder="¿Qué estás pensando?" style="width: 100%; min-heiht: 150px; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius);"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Publicar</button>
+                        <button type="submit" class=" btn btn-primary">Publicar</button>
                     </form>
                 </div>
             </div>
@@ -136,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const close = () => modal.remove();
     modal.querySelector(".close-modal").addEventListener("click", close);
-    modal.addEventListener("clisk", (e) => {
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) close();
     });
 
@@ -155,4 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     modalRoot.appendChild(modal);
   };
+
+  if (AuthService.isAuthenticated()) {
+    initFeed();
+  } else {
+    window.location.href = "login.html";
+  }
 });
